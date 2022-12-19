@@ -1,5 +1,5 @@
 """
-This Scripts Show Saved wifi password in your Windows PC
+This Scripts Show Saved wifi password in your Windows PC or linux
 """
 
 import subprocess
